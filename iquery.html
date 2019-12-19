@@ -17,6 +17,26 @@
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<style>
+.ui-widget {width:330px}
+        input, label {width: 160px; display:inline-block}
+		#send {margin:16px; width:100px !important}
+.hello{color:red;
+font-size:30px;
+display:inline-block;
+margin-left:625px;
+margin-top:30px;}
+.size{font-size:20px;}
+.noborder, .middle{width: 60px;
+    height: 60px;
+    float: left;
+    border: 2px white solid;
+	background:#c8ebcc;
+	margin-top:18px;
+	margin-left:110px;}
+.cok{font-style:italic;}
+
+</style>
     
     <!-- Контент страницы -->
  <h1>W3С консорциум. Цели и задачи W3C</h1>
@@ -66,16 +86,73 @@
 Основная цель стандартов W3C – создание единого интерфейса пользователя и совмести проектов всех разработчиков, работающих независимо.Рекомендации консорциума Всемирной паутины открыты, то есть не защищены патентами и могут внедряться любым человеком без всяких финансовых отчислений консорциуму. В отличие от других организаций, занимающихся разработкой стандартов для Интернета, консорциум Всемирной паутины не имеет программ сертификации и не планирует их вводить, поэтому рекомендации W3C получили гораздо большее распространение, нежели стандарты  других организаций. В то же время, из-за отсутствия сертификации многие производители следуют рекомендациям лишь частично. Рекомендации консорциума построены таким образом, что частичное внедрение не нарушает общих стандартов.
 </div>
 	</div>
-	<h2>Задачи консорциума</h2>
-	<div class="cont">•	Интернационализация Сети и стремление сделать интернет максимально удобным для населения всего земного шара.</div>
-	<div class="cont">•	Обеспечение удобства использования интернета людьми с ограниченными возможностями.</div>
-     <div class="cont">•обеспечение доступности ресурсов интернета для людей с ограниченными физическими возможностями.</div>
-	 <div class="cont">•доступность информации на всех языках мира, а не только на английском.</div>
-	 <div class="cont">•программы должны иметь несколько форм и режимов взаимодействия с пользователем.</div>
-     <div class="cont">•ресурсы Всемирной сети должны быть доступны для мобильных устройств.</div>
+<div class="vol" style="display:block; margin-top:30px; border:dotted 3px red; padding:15px;">
+<span class="lol">Первым крупным успехом консорциума стала стандартизация языка гипертекстовой разметки HTML (англ. HyperText Markup Language) в 1996 году. Дело в том, что в середине 1990-х годов ряд крупнейших производителей программного обеспечения планировал выпустить каждый свою версию языка HTML со своими названиями тегов. </span>
+<span class="lol"> Разумеется, это привело бы к хаосу в Интернете, и в результате веб-страница одной компании была бы размечена совершенно не так, как страница другой компании. Из-за этого веб-браузер одной компании не мог бы отображать страницы, созданные по правилам другой компании. </span>
+<span class="lol">Именно W3C принадлежит заслуга в том, что HTML был выпущен с единым базовым набором тегов и атрибутов и веб-страницы стали такими, какими мы их знаем сейчас. Хотя полного совпадения тегов и атрибутов HTML достичь, к сожалению, не удалось до сих пор.</span>
 </div>
+<div class="noborder"></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div class="noborder"></div>
+	<h2>Задачи консорциума</h2>
+	
+	<div class="cont"><a href="#">•	Интернационализация Сети и стремление сделать интернет максимально удобным для населения всего земного шара.</a></div>
+	<div class="cont"><a href="#">•	Обеспечение удобства использования интернета людьми с ограниченными возможностями.</a></div>
+     <div class="cont"><a href="#">•обеспечение доступности ресурсов интернета для людей с ограниченными физическими возможностями.</a></div>
+	 <div class="cont"><a href="#">•доступность информации на всех языках мира, а не только на английском.</a></div>
+	 <div class="cont"><a href="#">•программы должны иметь несколько форм и режимов взаимодействия с пользователем.</a></div>
+     <div class="cont"><a href="#">•ресурсы Всемирной сети должны быть доступны для мобильных устройств.</a></div>
+</div>
+<form style="margin-top:30px;margin-left:190px;">
+<label for="text">Как ваши дела?</label>
+<input type="text" name="text">
+<input style="background-color:#c8ebcc;border:none;border-radius:50px;width:170px;height:35px;" type="submit" value="Отправить">
+</form>
+<script type="text/javascript">
+$(function() {
+	
+    var canClose = false;
+    var delay = 15;
+    
+    $('#dialog').dialog({
+        modal: true,
+        autoOpen: false,
+        beforeClose: function() {
+            return canClose;
+        },
+        open: function() {
+            var count = delay;
+            var intID = setInterval(function() {
+               count--;
+               $('#time').text(count);
+               if (count == 0) {
+           clearInterval(intID)
+           canClose = true;
+           $('#dialog').dialog("close")
+               }
+            }, 1000)
+        }
+    })
+    
+    $('input').input().click(function(e) {
+        $('#dialog').dialog("open")
+    })
+			
+});
+    </script>   
 
-<button>Я понял(а) эту тему! Спасибо!</button>
+   
+    <div id="dialog" title="Неверный пароль">
+        Введенный вами пароль оказался неверным. Пожалуйста, повторите попытку через 
+        <span id="time">15</span> секунд.
+    </div>
+
+<h4>Lets start learning!</h4>
+<div class="show">show</div>
+<button class="gogo">Я понял(а) эту тему! Спасибо!</button>
 <h3>Ну как статья? Все понятно?<h3>
 <script>
 $(document).ready(function(){
@@ -92,8 +169,43 @@ $(document).ready(function(){
   });
 });
 </script>
+<script>
+$( "p:first" ).wrap('<div class="cok"></div>');
+</script>
+<script>
+  $("h4").last().addClass("hello");
+  </script>
 
-
+<script>
+$( "a" ).click(function( event ) {
+  event.preventDefault();
+  $( this ).hide("slow");
+});
+</script>
+<script>
+$( ".show" ).click(function() {
+  $( "a" ).show( "slow" );
+});
+</script>
+<script>
+$( "div" )
+  .filter( ".middle" )
+    .css( "border-color", "red" );
+</script>
+<script> 
+        $(document).ready(function() { 
+            $("div").find("p").css({ 
+                "color": "black", 
+                
+            }); 
+        }); 
+    </script> 
+<script>
+$( "input:first" ).trigger( "focus" );
+</script>
+<script>
+$('div.vol').toggleClass('size')
+</script>
 <script>
 	$( document ).ready(function(){
 	  $( "button" ).click(function(){ // задаем функцию при нажатиии на элемент <button>
@@ -104,7 +216,13 @@ $(document).ready(function(){
 	  });
 	});
 		</script>
-  
+ <script>
+ $( "span.lol" ).prepend( "<b>     (!START!)    </b>" ); 
+ </script> 
+ <script>
+ $( "span.lol" ).append( "<b>(!END!)</b>" ); 
+ 
+ </script> 
    
 	
 </body>
