@@ -15,12 +15,21 @@
  <script src="js/popper.min.js"></script>
     <!-- Подключаем Bootstrap JS -->    
     <script src="js/bootstrap.min.js"></script>
+	 <script type="text/javascript">
+        $(function() {
+
+            var company = ["ISO", "TCP/IP", "Международный союз электросвязи", "Институт инженеров по электротехнике и радиоэлектронике", "Ассоцифация электронной промышленности",
+			      "ECMA", "CBEMA", "EIA", "LANA"];
+            
+            $('#important').autocomplete({
+                source: company
+            })
+        });
+    </script>
+
 </head>
 <body>
 <style>
-.ui-widget {width:330px}
-        input, label {width: 160px; display:inline-block}
-		#send {margin:16px; width:100px !important}
 .hello{color:red;
 font-size:30px;
 display:inline-block;
@@ -35,6 +44,10 @@ margin-top:30px;}
 	margin-top:18px;
 	margin-left:110px;}
 .cok{font-style:italic;}
+#widget
+{font-size:0.8em;
+width:1100px;
+height:200px;}
 
 </style>
     
@@ -101,72 +114,70 @@ margin-top:30px;}
 	
 	<div class="cont"><a href="#">•	Интернационализация Сети и стремление сделать интернет максимально удобным для населения всего земного шара.</a></div>
 	<div class="cont"><a href="#">•	Обеспечение удобства использования интернета людьми с ограниченными возможностями.</a></div>
-     <div class="cont"><a href="#">•обеспечение доступности ресурсов интернета для людей с ограниченными физическими возможностями.</a></div>
-	 <div class="cont"><a href="#">•доступность информации на всех языках мира, а не только на английском.</a></div>
-	 <div class="cont"><a href="#">•программы должны иметь несколько форм и режимов взаимодействия с пользователем.</a></div>
-     <div class="cont"><a href="#">•ресурсы Всемирной сети должны быть доступны для мобильных устройств.</a></div>
+     <div class="cont"><a href="#">• Обеспечение доступности ресурсов интернета для людей с ограниченными физическими возможностями.</a></div>
+	 <div class="cont"><a href="#">• Доступность информации на всех языках мира, а не только на английском.</a></div>
+	 <div class="cont"><a href="#">• Программы должны иметь несколько форм и режимов взаимодействия с пользователем.</a></div>
+     <div class="cont"><a href="#">• Ресурсы Всемирной сети должны быть доступны для мобильных устройств.</a></div>
 </div>
-<form style="margin-top:30px;margin-left:190px;">
+
+ <form>
+        <div class="ui-widget">
+            <label for="important">Выберите организации по стандартам: </label>
+            <input id="important"/>
+        </div>
+    </form>
+<form style="margin-top:30px;margin-left:190px;font-size:20px;">
 <label for="text">Как ваши дела?</label>
 <input type="text" name="text">
 <input style="background-color:#c8ebcc;border:none;border-radius:50px;width:170px;height:35px;" type="submit" value="Отправить">
 </form>
-<script type="text/javascript">
-$(function() {
-	
-    var canClose = false;
-    var delay = 15;
-    
-    $('#dialog').dialog({
-        modal: true,
-        autoOpen: false,
-        beforeClose: function() {
-            return canClose;
-        },
-        open: function() {
-            var count = delay;
-            var intID = setInterval(function() {
-               count--;
-               $('#time').text(count);
-               if (count == 0) {
-           clearInterval(intID)
-           canClose = true;
-           $('#dialog').dialog("close")
-               }
-            }, 1000)
-        }
-    })
-    
-    $('input').input().click(function(e) {
-        $('#dialog').dialog("open")
-    })
-			
-});
-    </script>   
-
-   
-    <div id="dialog" title="Неверный пароль">
-        Введенный вами пароль оказался неверным. Пожалуйста, повторите попытку через 
-        <span id="time">15</span> секунд.
-    </div>
 
 <h4>Lets start learning!</h4>
 <div class="show">show</div>
+<div id="widget">
+<ul>
+<li><a href="#tabs-1">Организация ISO</a></li>
+<li><a href="#tabs-2">Министерство обороны США</a></li>
+<li><a href="#tabs-3">Международный союз электросвязи</a></li>
+</ul>
+<div id="tabs-1">
+<p><b>Международная организация по стандартизации, ИСО (International Organization for Standardization, ISO)</b> — международная организация, занимающаяся выпуском стандартов.</p>
+<p>Международная организация по стандартизации создана в 1946 году двадцатью пятью национальными организациями по стандартизации, на основе двух организаций: ISA (International Federation of the National Standardizing Associations), учреждённой в Нью-Йорке в 1926 году (расформирована в 1942) и UNSCC (United Nations Standards Coordinating Committee), учреждённой в 1944 году. Фактически её работа началась с 1947 года.</p>
+</div>
+<div id="tabs-2">
+<p><b>TCP/IP</b> — сетевая модель передачи данных, представленных в цифровом виде. Модель описывает способ передачи данных от источника информации к получателю. В модели предполагается прохождение информации через четыре уровня, каждый из которых описывается правилом (протоколом передачи). Наборы правил, решающих задачу по передаче данных, составляют стек протоколов передачи данных, на которых базируется Интернет.</p>
+<p>Также изредка упоминается как модель DOD (Department of Defense) в связи с историческим происхождением от сети ARPANET из 1970-х годов (под управлением DARPA, Министерства обороны США).</p>
+</div>
+<div id="tabs-3">
+<p><b>Междунаро́дный сою́з электросвя́зи (МСЭ, англ. International Telecommunication Union, ITU)</b> — международная организация, определяющая рекомендации в области телекоммуникаций и радио, а также регулирующая вопросы международного использования радиочастот (распределение радиочастот по назначениям и по странам).</p>
+<p>Стандарты (точнее, по терминологии МСЭ — рекомендации, англ. Recommendations) не являются обязательными, но широко поддерживаются, так как облегчают взаимодействие между сетями связи и позволяют провайдерам предоставлять услуги по всему миру.</p>
+</div>
+</div>
+
 <button class="gogo">Я понял(а) эту тему! Спасибо!</button>
 <h3>Ну как статья? Все понятно?<h3>
+
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
+  $("button.gogo").click(function(){
      $("h3").html('<b>Замечательно!</b>');
    });
 });
 </script> 
+
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
+  $("button.gogo").click(function(){
     $("h3").css("background-color","yellow");
 	   
   });
+});
+</script>
+	<script>
+$(document).ready(function() {
+
+   $("#widget").tabs();
+
 });
 </script>
 <script>
@@ -177,14 +188,14 @@ $( "p:first" ).wrap('<div class="cok"></div>');
   </script>
 
 <script>
-$( "a" ).click(function( event ) {
+$( "div.cont" ).click(function( event ) {
   event.preventDefault();
   $( this ).hide("slow");
 });
 </script>
 <script>
 $( ".show" ).click(function() {
-  $( "a" ).show( "slow" );
+  $( "div.cont" ).show( "slow" );
 });
 </script>
 <script>
@@ -208,7 +219,7 @@ $('div.vol').toggleClass('size')
 </script>
 <script>
 	$( document ).ready(function(){
-	  $( "button" ).click(function(){ // задаем функцию при нажатиии на элемент <button>
+	  $( "button.gogo" ).click(function(){ // задаем функцию при нажатиии на элемент <button>
 	    $( "h3" ).click(); // вызываем событие click на элементе <div>
 	  });
 	  $( "h3" ).click(function(){ // задаем функцию при нажатиии на элемент <div>
